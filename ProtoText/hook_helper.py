@@ -14,7 +14,7 @@ def register_class_hook(cls, strategy='safe', skip_buildin=True):
     :param skip_buildin: determine if we skip the build in object
     :return:
     """
-    assert isinstance(cls, (type, types.ClassType)), \
+    assert isinstance(cls, type), \
         "The input object must be a class object"
     base_classes = cls.__bases__
     for base_class in base_classes:
@@ -49,7 +49,7 @@ def deregister_class_hook(cls):
     :param cls:  the class object of the class to unhook
     :return:
     """
-    assert isinstance(cls, (type, types.ClassType)), \
+    assert isinstance(cls, type), \
         "The input object must be a class object"
     base_classes = cls.__bases__
     for base_class in base_classes:
