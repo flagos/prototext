@@ -1,5 +1,5 @@
 import types
-import __builtin__
+import builtins
 import logging
 
 HOOK_TABLE_NAME = '__ZX_PY_HOOK_TABLE__'
@@ -18,7 +18,7 @@ def register_class_hook(cls, strategy='safe', skip_buildin=True):
         "The input object must be a class object"
     base_classes = cls.__bases__
     for base_class in base_classes:
-        if skip_buildin and base_class.__name__ in __builtin__.__dict__:
+        if skip_buildin and base_class.__name__ in builtins.__dict__:
             logger.warn("Skip hooking build-in base class '%s' in sub-class '%s' ..." %
                         (base_class.__name__, cls.__name__))
             continue
